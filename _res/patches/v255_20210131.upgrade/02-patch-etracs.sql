@@ -1,3 +1,5 @@
+use etracs25_viga;
+
 -- ## 2020-03-16
 
 alter table account_incometarget add CONSTRAINT `fk_account_incometarget_itemid` 
@@ -5,33 +7,33 @@ alter table account_incometarget add CONSTRAINT `fk_account_incometarget_itemid`
 ;
 
 
-CREATE TABLE `business_closure` ( 
-   `objid` varchar(50) NOT NULL, 
-   `businessid` varchar(50) NOT NULL, 
-   `dtcreated` datetime NOT NULL, 
-   `createdby_objid` varchar(50) NOT NULL, 
-   `createdby_name` varchar(150) NOT NULL, 
-   `dtceased` date NOT NULL, 
-   `dtissued` datetime NOT NULL, 
-   `remarks` text NULL,
-   CONSTRAINT `pk_business_closure` PRIMARY KEY (`objid`),
-   UNIQUE KEY `uix_businessid` (`businessid`),
-   KEY `ix_createdby_objid` (`createdby_objid`),
-   KEY `ix_dtceased` (`dtceased`),
-   KEY `ix_dtcreated` (`dtcreated`),
-   KEY `ix_dtissued` (`dtissued`),
-   CONSTRAINT `fk_business_closure_businessid` FOREIGN KEY (`businessid`) REFERENCES `business` (`objid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
-; 
+-- CREATE TABLE `business_closure` ( 
+--    `objid` varchar(50) NOT NULL, 
+--    `businessid` varchar(50) NOT NULL, 
+--    `dtcreated` datetime NOT NULL, 
+--    `createdby_objid` varchar(50) NOT NULL, 
+--    `createdby_name` varchar(150) NOT NULL, 
+--    `dtceased` date NOT NULL, 
+--    `dtissued` datetime NOT NULL, 
+--    `remarks` text NULL,
+--    CONSTRAINT `pk_business_closure` PRIMARY KEY (`objid`),
+--    UNIQUE KEY `uix_businessid` (`businessid`),
+--    KEY `ix_createdby_objid` (`createdby_objid`),
+--    KEY `ix_dtceased` (`dtceased`),
+--    KEY `ix_dtcreated` (`dtcreated`),
+--    KEY `ix_dtissued` (`dtissued`),
+--    CONSTRAINT `fk_business_closure_businessid` FOREIGN KEY (`businessid`) REFERENCES `business` (`objid`)
+-- ) ENGINE=InnoDB DEFAULT CHARSET=utf8
+-- ; 
 
 
-create UNIQUE index `uix_code` on businessrequirementtype (`code`)
-; 
-create UNIQUE index `uix_title` on businessrequirementtype (`title`)
-; 
+-- create UNIQUE index `uix_code` on businessrequirementtype (`code`)
+-- ; 
+-- create UNIQUE index `uix_title` on businessrequirementtype (`title`)
+-- ; 
 
-create UNIQUE index `uix_name` on businessvariable (`name`)
-;
+-- create UNIQUE index `uix_name` on businessvariable (`name`)
+-- ;
 
 CREATE TABLE `cashreceipt_group` ( 
    `objid` varchar(50) NOT NULL, 
@@ -79,12 +81,12 @@ CREATE TABLE `entity_mapping` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 ; 
 
-alter table lob add _ukey varchar(50) not null default ''
-;
-update lob set _ukey=objid where _ukey=''
-;
-create unique index uix_name on lob (name, _ukey)
-;
+-- alter table lob add _ukey varchar(50) not null default ''
+-- ;
+-- update lob set _ukey=objid where _ukey=''
+-- ;
+-- create unique index uix_name on lob (name, _ukey)
+-- ;
 
 DROP TABLE IF EXISTS `paymentorder`
 ;
@@ -166,12 +168,12 @@ CREATE TABLE `sync_data_pending` (
 ; 
 */
 
-alter table sys_rule add _ukey varchar(50) not null default ''
-; 
-update sys_rule set _ukey = objid where _ukey = ''
-; 
-CREATE UNIQUE INDEX `uix_ruleset_name` ON sys_rule (`ruleset`,`name`,`_ukey`)
-;
+-- alter table sys_rule add _ukey varchar(50) not null default ''
+-- ; 
+-- update sys_rule set _ukey = objid where _ukey = ''
+-- ; 
+-- CREATE UNIQUE INDEX `uix_ruleset_name` ON sys_rule (`ruleset`,`name`,`_ukey`)
+-- ;
 
 
 
@@ -1983,8 +1985,8 @@ where aa.objid = bb.cdetailid
 
 alter table creditmemo change payername _payername varchar(255) null
 ;
-alter table creditmemo add payer_name varchar(255) null
-;
+-- alter table creditmemo add payer_name varchar(255) null
+-- ;
 update creditmemo set payer_name = _payername where payer_name is null 
 ; 
 alter table creditmemo modify payer_name varchar(255) not null
@@ -1992,15 +1994,15 @@ alter table creditmemo modify payer_name varchar(255) not null
 create index ix_payer_name on creditmemo (payer_name)
 ;
 
-alter table creditmemo add payer_address_objid varchar(50) null
-;
+-- alter table creditmemo add payer_address_objid varchar(50) null
+-- ;
 create index ix_payer_address_objid on creditmemo (payer_address_objid)
 ; 
 
 alter table creditmemo change payeraddress _payeraddress varchar(255) null 
 ;
-alter table creditmemo add payer_address_text varchar(255) null 
-;
+-- alter table creditmemo add payer_address_text varchar(255) null 
+-- ;
 update creditmemo set payer_address_text = _payeraddress where payer_address_text is null 
 ;
 
