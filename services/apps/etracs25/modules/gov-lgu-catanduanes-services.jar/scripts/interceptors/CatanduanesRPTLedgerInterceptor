@@ -1,0 +1,29 @@
+import com.rameses.annotations.*;
+import com.rameses.util.*;
+import java.rmi.server.*;
+import com.rameses.services.extended.*;
+
+public class CatanduanesRPTLedgerInterceptor 
+{
+    @DataContext('rptledger_faas')
+    def em_rptledger_faas
+
+    @After(pattern="RPTLedgerService.calcLedgerItemAssessedValue.*")
+    public void postFaasToRPTLedger(evt){
+        /* params: ledger, ledgerfaas, yr, av*/
+        def params = evt.result
+        println "params=>" + params
+        if (params.year < 2019 || params.year > 2022) return
+
+        def faases = em_rptledger_faas.find([rptledgerid: params.rptledgerid, state: 'APPROVED']).list();
+        if (!faases) return;
+        
+        def prevyr = 2014
+        def prevledgerfaas = faases.find{ it.state == 'APPROVED' &&  prevyr >= it.fromyear && (prevyr <= it.toyear || it.toyear == 0)}
+        
+        if (prevledgerfaas){
+            params.av = prevledgerfaas.assessedvalue
+            println 'reclassed: [' + params.tdno + ']  Recomputed AV: ' + params.av 
+        }
+    }
+}

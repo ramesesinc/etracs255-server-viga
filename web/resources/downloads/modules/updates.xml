@@ -21,8 +21,21 @@ entity.app.context=etracs25
 </env>
 <modules>
     <!-- custom --> 
-    <module version="2.01" file="custom/gov-lgu-viga.jar" />
+    <module version="4.00" file="custom/gov-lgu-viga-bpls-form.jar" />
+    <module version="4.00" file="custom/gov-lgu-viga-notice-of-delinquency.jar" />
+    <module version="1.05" file="custom/gov-lgu-viga-bpls.jar" />
+    <module version="3.02" file="custom/gov-lgu-viga-rpt56-or.jar" />
+    <module version="3.01" file="custom/gov-lgu-viga-af53-or.jar" />
+    <module version="3.00" file="custom/lgu-gov-viga-af58-or.jar" />
+    <module version="2.05" file="custom/gov-lgu-viga-af51c-or.jar" />
+    <module version="2.04" file="custom/gov-lgu-viga.jar" />
     <module version="2.01" file="custom/gov-lgu-viga-landtax-report.jar" />
+    <module version="1.04" file="custom/gov-lgu-viga-landtax-share-brgy.jar" />
+    <module version="2.01" file="custom/gov-lgu-viga-rptis-report.jar" />
+    <module version="2.02" file="custom/gov-lgu-viga-bplo-business-tax-billing.jar" />
+    <module version="2.00" file="custom/faas-format.jar" />
+    <module version="2.00" file="custom/faas-bldgformat.jar" />
+    <module version="2.00" file="custom/sre-summary.jar" />
 
     <!-- libs --> 
     <module version="2.50" file="libs/commons-net-3.5.jar"  />
