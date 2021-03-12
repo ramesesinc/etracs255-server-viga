@@ -1,22 +1,22 @@
 <app>
 <env>
 app.title=ETRACS 2.5 build 2.5.03.02.01 (MUNICIPALITY OF VIGA)
-app.host=192.168.254.50:8070
+app.host=10.0.0.5:8070
 app.cluster=osiris3
 app.context=etracs25
-app.help=http://192.168.254.50:8080/help
+app.help=http://10.0.0.5:8080/help
 app.loader=com.rameses.osiris2.client.OsirisAppLoader
 readTimeout=300000
 connectionTimeout=5000
 
 filemgmt.enabled=false
 
-ws.host=192.168.254.50:8060
-#res.host=192.168.254.50
+ws.host=10.0.0.5:8060
+#res.host=10.0.0.5
 
-socketio.host=192.168.254.50:7080
+socketio.host=10.0.0.5:7080
 
-entity.app.host=192.168.254.50:8070
+entity.app.host=10.0.0.5:8070
 entity.app.context=etracs25
 </env>
 <modules>
