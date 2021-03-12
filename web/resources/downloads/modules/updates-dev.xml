@@ -1,0 +1,26 @@
+<app>
+<env>
+app.title=ETRACS 2.5 build 2.5.03.02.01 (MUNICIPALITY OF VIGA)
+app.host=localhost:8070
+app.cluster=osiris3
+app.context=etracs25
+app.help=http://localhost:8080/help
+app.loader=com.rameses.osiris2.client.OsirisAppLoader
+readTimeout=300000
+connectionTimeout=5000
+
+filemgmt.enabled=false
+
+ws.host=localhost:8060
+#res.host=localhost
+
+socketio.host=localhost:7080
+
+entity.app.host=localhost:8070
+entity.app.context=etracs25
+</env>
+<modules>
+    <!-- libs --> 
+    <module version="2.50" file="libs/commons-net-3.5.jar"  />
+</modules>
+</app>
