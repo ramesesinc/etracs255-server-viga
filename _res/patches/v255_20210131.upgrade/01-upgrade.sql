@@ -1,4 +1,4 @@
-use etracs25_viga;
+use etracs255_viga;
 
 -- ## patch-01
 
