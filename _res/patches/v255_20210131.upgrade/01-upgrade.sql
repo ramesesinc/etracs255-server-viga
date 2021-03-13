@@ -6103,3 +6103,19 @@ INSERT IGNORE INTO `sys_ruleset_fact` (`ruleset`, `rulefact`) VALUES ('revenuesh
 INSERT IGNORE INTO `sys_ruleset_fact` (`ruleset`, `rulefact`) VALUES ('revenuesharing', 'treasury.facts.RevenueShare');
 
 INSERT IGNORE INTO `sys_ruleset_actiondef` (`ruleset`, `actiondef`) VALUES ('revenuesharing', 'treasury.actions.AddRevenueShare');
+
+
+
+
+insert into collectiontype ( 
+  objid, state, name, title, formno, handler, sortorder, 
+  allowbatch, allowoffline, allowonline, allowpaymentorder, 
+  allowkiosk, allowcreditmemo, system 
+) 
+select 
+  cmt.objid, 'ACTIVE' as state, cmt.objid as name, cmt.title, '51' as formno, 'misc' as handler, 
+  0 as sortorder, 0 as allowbatch, 0 as allowoffline, 0 as allowonline, 0 as allowpaymentorder, 
+  0 as allowkiosk, 1 as allowcreditmemo, 0 as system 
+from creditmemotype cmt 
+where cmt.objid not in (  select objid from collectiontype ) 
+;
