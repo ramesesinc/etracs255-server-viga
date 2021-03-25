@@ -21,6 +21,7 @@ entity.app.context=etracs25
 </env>
 <modules>
     <!-- custom --> 
+    <module version="1.00" file="custom/viga-faasreport-mach.jar" />
     <module version="4.00" file="custom/gov-lgu-viga-bpls-form.jar" />
     <module version="4.00" file="custom/gov-lgu-viga-notice-of-delinquency.jar" />
     <module version="1.05" file="custom/gov-lgu-viga-bpls.jar" />
