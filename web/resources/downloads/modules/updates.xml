@@ -38,7 +38,7 @@ entity.app.context=etracs25
     <module version="2.00" file="custom/faas-format.jar" />
     <module version="2.00" file="custom/faas-bldgformat.jar" />
     <module version="2.00" file="custom/sre-summary.jar" />
-    <module version="2.00" file="custom/rptis-report-noa.jar" />
+    <module version="2.01" file="custom/rptis-report-noa.jar" />
 
     <!-- libs --> 
     <module version="2.50" file="libs/commons-net-3.5.jar"  />
