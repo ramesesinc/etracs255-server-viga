@@ -14,7 +14,8 @@ ${orderby}
 [closePaidAvDifference]
 update rptledger_avdifference set 
 	paid = 1
-where not exists(
+where parent_objid = $P{refid}
+  and not exists(
 	select * from rptledger_item 
 	where parentid = rptledger_avdifference.parent_objid
 	and year = rptledger_avdifference.year 
