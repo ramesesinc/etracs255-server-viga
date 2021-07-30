@@ -68,9 +68,9 @@ class RuleLoaderService {
 
 			ruleDB.getRulesForDeployment( [ruleset:rs] ).each{ r->
 				try {
-					String s = r.ruletext;
+					String s = r.ruletext.toString().trim();
 					readers << new java.io.StringReader( s );
-				} catch(Throwable e) {
+				} catch(Throwable e) { 
 					e.printStackTrace(); 
 				} 
 			}
