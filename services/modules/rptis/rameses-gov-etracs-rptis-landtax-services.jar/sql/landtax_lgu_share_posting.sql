@@ -32,7 +32,7 @@ from rptpayment rp
 inner join rptpayment_item rpi on rp.objid = rpi.parentid 
 inner join rptledger rl on rp.refid = rl.objid 
 left join sys_org o on rl.lguid = o.objid 
-where rp.refid = $P{objid}
+where rl.objid = $P{objid}
 and rp.receiptid = $P{receiptid}
 and rpi.revperiod <> 'advance'
 and rpi.amount > 0
@@ -64,7 +64,7 @@ inner join rptpayment_item rpi on rp.objid = rpi.parentid
 inner join rptcompromise rc on rp.refid = rc.objid 
 inner join rptledger rl on rc.rptledgerid = rl.objid 
 left join sys_org o on rl.lguid = o.objid 
-where rp.refid = $P{objid}
+where rl.objid = $P{objid}
 and rp.receiptid = $P{receiptid}
 and rpi.revperiod <> 'advance'
 and rpi.amount > 0
@@ -95,7 +95,7 @@ from rptpayment rp
 inner join rptpayment_item rpi on rp.objid = rpi.parentid 
 inner join rptledger rl on rp.refid = rl.objid 
 left join sys_org o on rl.lguid = o.objid 
-where rp.refid = $P{objid}
+where rl.objid = $P{objid}
 and rp.receiptid = $P{receiptid}
 and rpi.revperiod = 'advance'
 and rpi.amount > 0
@@ -128,7 +128,7 @@ inner join rptpayment_item rpi on rp.objid = rpi.parentid
 inner join rptcompromise rc on rp.refid = rc.objid 
 inner join rptledger rl on rc.rptledgerid = rl.objid 
 left join sys_org o on rl.lguid = o.objid 
-where rp.refid = $P{objid}
+where rl.objid = $P{objid}
 and rp.receiptid = $P{receiptid}
 and rpi.revperiod = 'advance'
 and rpi.amount > 0
