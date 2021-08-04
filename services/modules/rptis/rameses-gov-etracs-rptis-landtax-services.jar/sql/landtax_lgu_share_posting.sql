@@ -6,6 +6,15 @@ inner join rptledger rl on rp.refid = rl.objid
 where c.objid = $P{receiptid}
 and rl.objid = $P{rptledgerid}
 
+[findPaidCompromise]
+select rl.objid, c.objid as receiptid, rp.objid as paymentid, rp.amount 
+from cashreceipt c 
+inner join rptpayment rp on c.objid = rp.receiptid 
+inner join rptcompromise rc on rp.refid = rc.objid 
+inner join rptledger rl on rc.rptledgerid = rl.objid 
+where c.objid = $P{receiptid}
+and rc.objid = $P{rptledgerid}
+
 [getPaidItems]
 select 
 	rl.lguid, 
